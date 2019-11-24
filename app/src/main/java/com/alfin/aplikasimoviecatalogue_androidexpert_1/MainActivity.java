@@ -2,6 +2,7 @@ package com.alfin.aplikasimoviecatalogue_androidexpert_1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private MovieAdapter adapter;
     private String[] dataJudul;
     private String[] dataTanggal;
+    private String[] dataGenre;
     private String[] dataDeskripsi;
     private TypedArray dataGambar;
     private ArrayList<Movie> movies;
@@ -31,6 +33,21 @@ public class MainActivity extends AppCompatActivity {
 
         prepare();
         addItem();
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Movie movie = new Movie();
+                movie.setGambar(dataGambar.getResourceId(position,1));
+                movie.setJudul(dataJudul[position]);
+                movie.setTanggal_rilis(dataTanggal[position]);
+                movie.setGenre(dataGenre[position]);
+                movie.setDeskripsi(dataDeskripsi[position]);
+                Intent intent = new Intent(MainActivity.this,DetailActivity.class);
+                intent.putExtra(DetailActivity.EXTRA_MOVIE,movie);
+                startActivity(intent);
+            }
+        });
     }
 
     private void addItem() {
@@ -52,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         dataJudul = getResources().getStringArray(R.array.judul_movie);
         dataTanggal = getResources().getStringArray(R.array.tgl_release_movie);
         dataDeskripsi = getResources().getStringArray(R.array.deskripsi_movie);
+        dataGenre = getResources().getStringArray(R.array.genre_movie);
         dataGambar = getResources().obtainTypedArray(R.array.gambar_movie);
     }
 }

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailActivity">
+
+    <ImageView
+        android:id="@+id/iv_gambar_detail"
+        android:layout_width="175dp"
+        android:layout_height="225dp"
+        android:layout_margin="8dp"
+        android:scaleType="fitXY"/>
+
+    <TextView
+        android:id="@+id/tv_judul_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_toRightOf="@id/iv_gambar_detail"
+        android:text="@string/judul"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+    <TextView
+        android:id="@+id/tv_tanggal_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_toRightOf="@id/iv_gambar_detail"
+        android:layout_below="@id/tv_judul_detail"
+        android:text="@string/tanggal_rilis"
+        android:textColor="@android:color/black"/>
+
+    <TextView
+        android:id="@+id/tv_genre_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_toRightOf="@id/iv_gambar_detail"
+        android:layout_below="@id/tv_tanggal_detail"
+        android:text="@string/genre"
+        android:textColor="@android:color/black"/>
+
+    <TextView
+        android:id="@+id/tv_deskripsi_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_below="@id/iv_gambar_detail"
+        android:justificationMode="inter_word"
+        android:text="@string/dummy_text"
+        android:textColor="@android:color/black"/>
+
+</RelativeLayout>
